@@ -12,8 +12,8 @@ console.log('connected to:' + client.address);
 
 router.get('/users', (req, res) => {
 
-    const todoRedisKey = 'user:userList';
-    return client.get(todoRedisKey, (err, users) => {
+    const userKey = 'user:list';
+    return client.get(userKey, (err, users) => {
         if (users) {
             console.log('Fetching data from cache');
             return res.json({ source: 'cache', data: JSON.parse(users) })
